@@ -17,7 +17,7 @@ G1 B1 B2\
 G1 B2 B1
 
 #### Constraint: Girl should not sit in the middle
-* Girl should not be in the second level
+Girl should not be in the second level
 B1 B2 G1\
 B1 G1 B2 KILLED BOUNDING FUNCTION\
 B2 B1 G1\
