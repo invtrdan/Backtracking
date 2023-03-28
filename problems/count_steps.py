@@ -22,11 +22,37 @@ def climb_stairs(n: int) -> int:
         if cur_step == n: return 1 # Reached the top
         if cur_step > n: return 0 # Gone past the top
 
-        ways_by_one_step = helper(n, cur_step + 1)
-        ways_by_two_steps = helper(n, cur_step + 2)
+        # Branches
+        ways_by_one_step = helper(n, cur_step + 1) 
+        ways_by_two_steps = helper(n, cur_step + 2) 
 
         return ways_by_one_step + ways_by_two_steps
 
     return helper(n, 0)
 
-print(climb_stairs(4))
+'''
+TRACING
+n = 3
+
+Call Stack      return    ways_by_one_step     ways_by_two_steps     ways_by_one + ways_by_two
+             
+helper(3,0)
+helper(3,1)
+helper(3,2)
+helper(3,3)       1                                                              0
+
+helper(3,0)
+helper(3,1)
+helper(3,2)                     1                     0                           1 
+
+helper(3,0)
+helper(3,1)                     1                     1                           2
+
+helper(3,0)                     1                     2                           3       
+'''
+
+'''
+Time Complexity: O(2^n) - constant time (base cases) + (n-1) + (n-1) ~= 2^n
+Space Complexity: O(n) - maximum depth of call stack
+'''
+
